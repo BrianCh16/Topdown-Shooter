@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://bwt1nt64nbud4"]
+
+[ext_resource type="Script" path="res://Scenes/projectiles/LaserBlue.cs" id="1_n6h2e"]
+[ext_resource type="Texture2D" uid="uid://capjclv4ao0do" path="res://graphics/projectiles/blue.png" id="2_3ls7s"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_d7bmd"]
+radius = 9.0
+height = 162.0
+
+[node name="LaserBlue" type="Area2D"]
+collision_layer = 8
+collision_mask = 7
+script = ExtResource("1_n6h2e")
+speed = 2000
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_3ls7s")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_d7bmd")
