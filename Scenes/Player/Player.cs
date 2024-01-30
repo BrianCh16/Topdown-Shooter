@@ -9,15 +9,20 @@ public partial class Player : CharacterBody2D
 	public delegate void GrenadeFiredEventHandler(Vector2 Position, Vector2 Direction);
 	[Export]
 	public int speed;
-	bool canLaser = true;
-	bool canGrenade = true;
+
 	Timer laserTimer;
 	Timer grenadeTimer;
+
+	GpuParticles2D particles;
+
+	bool canLaser = true;
+	bool canGrenade = true;
 	Random rand = new Random();
 	public override void _Ready()
 	{
 		laserTimer = GetNode<Timer>("LaserTimer");
 		grenadeTimer = GetNode<Timer>("GrenadeTimer");
+		particles = GetNode<GpuParticles2D>("GPUParticles2D");
 	}
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -39,6 +44,7 @@ public partial class Player : CharacterBody2D
 			Marker2D selectedLaser = (Marker2D) laserMarkers[rand.Next(laserMarkers.Count)];
 			laserTimer.Start();
 			EmitSignal(SignalName.LaserFired, selectedLaser.GlobalPosition, playerDirection);
+			particles.Emitting = true;
 		}
 		//shooting inputs for grenade
 		if(Input.IsActionPressed("secondary action") && canGrenade)
