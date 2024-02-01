@@ -113,3 +113,7 @@ zoom = Vector2(0.6, 0.6)
 position_smoothing_speed = 3.0
 
 [node name="Projectiles" type="Node2D" parent="."]
+
+[node name="DirectionalLight2D" type="DirectionalLight2D" parent="."]
+energy = 0.4
+blend_mode = 1
