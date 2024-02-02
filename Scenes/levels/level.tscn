@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://d1guma77l6orn"]
+[gd_scene load_steps=19 format=3 uid="uid://d1guma77l6orn"]
 
 [ext_resource type="Script" path="res://Scenes/levels/Level.cs" id="1_p0tjo"]
 [ext_resource type="PackedScene" uid="uid://c3txdseb0jo1r" path="res://Scenes/objects/gate.tscn" id="2_faygu"]
@@ -14,6 +14,7 @@
 [ext_resource type="Texture2D" uid="uid://cgscrad262md7" path="res://graphics/tilesets/soil.png" id="9_05mos"]
 [ext_resource type="PackedScene" uid="uid://dj3etovylufo2" path="res://Scenes/houses/House.tscn" id="10_32lae"]
 [ext_resource type="PackedScene" uid="uid://qbmd1xh3d810" path="res://Scenes/objects/steam_vent.tscn" id="12_85fcy"]
+[ext_resource type="PackedScene" uid="uid://btd4trj681h7u" path="res://Scenes/objects/light_fan_animation.tscn" id="13_4bknr"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ebl4u"]
 resource_name = "walls"
@@ -101,6 +102,10 @@ rotation = -2.51327
 [node name="SteamVent" parent="Ground" instance=ExtResource("12_85fcy")]
 position = Vector2(29, 565)
 
+[node name="LightFanAnimation" parent="Ground" instance=ExtResource("13_4bknr")]
+position = Vector2(-1431, 1672)
+autoplay = "default"
+
 [node name="Gate" parent="." instance=ExtResource("2_faygu")]
 
 [node name="Player" parent="." instance=ExtResource("4_5ojk4")]
@@ -115,5 +120,5 @@ position_smoothing_speed = 3.0
 [node name="Projectiles" type="Node2D" parent="."]
 
 [node name="DirectionalLight2D" type="DirectionalLight2D" parent="."]
-energy = 0.4
+energy = 0.2
 blend_mode = 1
