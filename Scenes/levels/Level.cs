@@ -25,7 +25,8 @@ public partial class Level : Node2D
 
 	private void OnPlayerEnteredGate(Player body)
 	{
-		GD.Print($"player entered gate: {body}");
+		Tween tween = GetTree().CreateTween();
+		tween.TweenProperty(GetNode<CharacterBody2D>("Player"), "speed", 0, 0.4);
 	}
 
 	private void OnPlayerLaserFired(Vector2 pos, Vector2 direction)
@@ -45,5 +46,17 @@ public partial class Level : Node2D
 		grenade.LinearVelocity = direction * Grenade.SPEED;
 		GetNode("Projectiles").AddChild(grenade);
 		GD.Print("Grenade from level");
+	}
+
+	private void OnHousePlayerEntered()
+	{
+		Tween tween = GetTree().CreateTween();
+		tween.TweenProperty(GetNode<Camera2D>("Player/Camera2D"), "zoom", new Vector2(1,1), 1);
+	}
+
+	private void OnHousePlayerExited()
+	{
+		Tween tween = GetTree().CreateTween();
+		tween.TweenProperty(GetNode<Camera2D>("Player/Camera2D"), "zoom", new Vector2(1,1) * (float)0.6, 1);
 	}
 }

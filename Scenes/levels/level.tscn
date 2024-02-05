@@ -61,6 +61,7 @@ position = Vector2(646, 494)
 texture = ExtResource("2_gjxvb")
 region_enabled = true
 region_rect = Rect2(-1900, -1900, 12000, 10000)
+metadata/_edit_lock_ = true
 
 [node name="TileMap" type="TileMap" parent="Ground"]
 tile_set = SubResource("TileSet_486jm")
@@ -72,8 +73,9 @@ layer_1/tile_data = PackedInt32Array(-131080, 0, 0, -131079, 65536, 0, -131078, 
 
 [node name="Decoration" type="Sprite2D" parent="Ground"]
 modulate = Color(0.988235, 0.85098, 0.521569, 1)
-position = Vector2(-857, 865)
+position = Vector2(-683, 839)
 texture = ExtResource("3_qug4q")
+metadata/_edit_lock_ = true
 
 [node name="Moss1" type="Sprite2D" parent="Ground"]
 position = Vector2(2472, 476)
@@ -122,3 +124,6 @@ position_smoothing_speed = 3.0
 [node name="DirectionalLight2D" type="DirectionalLight2D" parent="."]
 energy = 0.2
 blend_mode = 1
+
+[connection signal="PlayerEntered" from="Ground/House" to="." method="OnHousePlayerEntered"]
+[connection signal="PlayerExited" from="Ground/House" to="." method="OnHousePlayerExited"]
