@@ -15,4 +15,9 @@ public partial class drone : CharacterBody2D
 		Velocity = direction * speed;
 		MoveAndSlide();
 	}
+
+	public void hit()
+	{
+		GD.Print("damage");
+	}
 }

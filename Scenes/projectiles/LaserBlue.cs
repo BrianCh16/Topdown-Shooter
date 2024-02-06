@@ -11,4 +11,19 @@ public partial class LaserBlue : Area2D
     {
         Position += direction * speed * (float) delta;
     }
+
+    private void OnBodyEntered(Node2D body)
+    {
+        if (body is drone)
+        {
+            drone droneBody = (drone) body;
+            droneBody.hit();
+        }
+        QueueFree();
+    }
+
+    private void OnDestroyTimerTimeout()
+    {
+        QueueFree();
+    }
 }

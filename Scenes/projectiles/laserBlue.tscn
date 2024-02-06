@@ -9,7 +9,7 @@ height = 162.0
 
 [node name="LaserBlue" type="Area2D"]
 collision_layer = 8
-collision_mask = 7
+collision_mask = 6
 script = ExtResource("1_n6h2e")
 speed = 2000
 
@@ -18,3 +18,10 @@ texture = ExtResource("2_3ls7s")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_d7bmd")
+
+[node name="destroyTimer" type="Timer" parent="."]
+wait_time = 2.0
+autostart = true
+
+[connection signal="body_entered" from="." to="." method="OnBodyEntered"]
+[connection signal="timeout" from="destroyTimer" to="." method="OnDestroyTimerTimeout"]

@@ -50,15 +50,16 @@ wait_time = 2.0
 one_shot = true
 
 [node name="StartPositions" type="Node2D" parent="."]
+position = Vector2(3, -1)
 
 [node name="Marker2D" type="Marker2D" parent="StartPositions"]
-position = Vector2(140, 1)
+position = Vector2(141, 2)
 
 [node name="Marker2D2" type="Marker2D" parent="StartPositions"]
-position = Vector2(135, -9)
+position = Vector2(137, -11)
 
 [node name="Marker2D3" type="Marker2D" parent="StartPositions"]
-position = Vector2(136, 14)
+position = Vector2(137, 15)
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="."]
 position = Vector2(136, 3)

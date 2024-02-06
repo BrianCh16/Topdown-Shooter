@@ -36,7 +36,6 @@ public partial class Level : Node2D
 		laser.RotationDegrees = (float) (direction.Angle() * 180/Math.PI) + 90;
 		laser.direction = direction;
 		GetNode("Projectiles").AddChild(laser);
-		GD.Print($"Laser from level");
 	}
 
 	private void OnPlayerGrenadeFired(Vector2 pos, Vector2 direction)
